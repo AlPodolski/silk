@@ -41,10 +41,10 @@ class ImportPhone extends Command
      */
     public function handle()
     {
-        $stream = \fopen(storage_path('phone_27_07_2023.csv'), 'r');
+        $stream = \fopen(storage_path('posts_phones_from_true_12_08_25.csv'), 'r');
 
         $csv = Reader::createFromStream($stream);
-        $csv->setDelimiter(',');
+        $csv->setDelimiter(';');
         $csv->setHeaderOffset(0);
         //build a statement
         $stmt = (new Statement());
