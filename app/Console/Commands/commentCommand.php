@@ -17,7 +17,7 @@ class commentCommand extends Command
 
     public function handle(): void
     {
-        $stream = \fopen(storage_path('comments_20_02_2025.csv'), 'r');
+        $stream = \fopen(storage_path('import_comments/import_19_08_25_p1.csv'), 'r');
 
         $csv = Reader::createFromStream($stream);
         $csv->setDelimiter(';');
