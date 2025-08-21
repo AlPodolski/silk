@@ -168,7 +168,7 @@
                     <div class="metro-wrap d-flex">
                         <div class="metro-label">Национальность:</div>
                         <div class="metro-name">
-                            <a href="/{{ $post->national->url}}">{{ $post->national->filter_url }}</a>
+                            <a href="/{{ $post->national->filter_url}}">{{ $post->national->value }}</a>
                         </div>
                     </div>
 
