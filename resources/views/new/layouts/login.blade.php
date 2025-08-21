@@ -5,27 +5,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@yield('title')</title>
+    <link rel="stylesheet" href="/fonts/ubuntu/ubuntu.css">
+    <link rel="stylesheet" href="/css/bootstrap-grid.css">
+    <link rel="stylesheet" href="/css/style.css?v=10">
     <link rel="stylesheet" href="/files/css/cabinet.css?v=12">
 </head>
 
 <body>
 <div class="wrapper">
     <div class="content">
-        <header class="header">
-            <div class="container">
-                <div class="header__row row">
-                    <div class="header__col--logo col-lg-2 col-md-2 col-6">
-                        <a href="/" class="header__logo">
-                            <img class="header__logo-img" src="/images/logo.webp" alt="">
-                        </a>
-                    </div>
-                    <div class="header__col--burger col-lg-2 col-4">
-                        <div class="header__burger">
-                            <span></span><span></span><span></span>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <header class="header_auth">
+            <a href="/" class="header__logo">
+                <img class="header__logo-img" src="/img/logo.svg" alt="">
+            </a>
         </header>
         <div class="container">
             <div class="row">
@@ -43,7 +35,6 @@
 
 
 </div>
-<script defer src="/intim-box/js/cabinet.js?v=12"></script>
 </body>
 
 </html>

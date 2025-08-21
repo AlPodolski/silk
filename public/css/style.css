@@ -150,6 +150,10 @@ body{
     margin-bottom: 25px;
     overflow-x: auto;
 }
+.header_auth{
+    text-align: center;
+    padding-top: 30px;
+}
 .big-red-text{
     color: #F74952;
     font-family: Ubuntu;
@@ -958,6 +962,10 @@ body{
 }
 .metro-name{
     margin-right: 10px;
+}
+
+.form h1{
+    text-align: center;
 }
 
 @media (max-width: 1399px) {
