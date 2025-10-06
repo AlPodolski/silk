@@ -242,6 +242,26 @@
 </script>
 <noscript><div><img src="https://mc.yandex.ru/watch/103669452" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
 <!-- /Yandex.Metrika counter -->
-<script defer src="/js/script.js?v=3"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const targets = document.querySelectorAll(".more-posts");
+        if (!targets.length) return;
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // передаём конкретный блок, который пересёк видимую область
+                    getMorePosts(entry.target);
+                }
+            });
+        }, {
+            root: null,
+            threshold: 0.3 // срабатывает при 30% видимости блока
+        });
+
+        targets.forEach(el => observer.observe(el));
+    });
+</script>
+<script defer src="/js/script.js?v=4"></script>
 </body>
 </html>

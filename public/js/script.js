@@ -343,7 +343,7 @@ window.addEventListener('scroll', () => {
 });
 
 scrollBtn.addEventListener('click', () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({top: 0, behavior: 'smooth'});
 });
 
 function selectSorting() {
@@ -378,4 +378,26 @@ window.addEventListener('click', (e) => {
     if (e.target.classList.contains('modal')) {
         e.target.style.display = 'none';
     }
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+    const targets = document.querySelectorAll(".more-posts");
+    if (!targets.length) return;
+
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // передаём сам элемент, как ты хотел
+                getMorePosts(entry.target);
+                // если нужно вызвать только один раз — снимаем наблюдение
+                observer.unobserve(entry.target);
+            }
+        });
+    }, {
+        root: null,
+        rootMargin: "150px 0px 150px 0px", // срабатывает за 150px до появления элемента
+        threshold: 0
+    });
+
+    targets.forEach(el => observer.observe(el));
 });
