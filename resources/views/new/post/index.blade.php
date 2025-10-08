@@ -42,7 +42,7 @@
                         @if($post->photo->first())
 
                             @foreach($post->photo as $item)
-                                <div class="swiper-slide"><img src="/storage{{ $item->file }}"
+                                <div class="swiper-slide"><img src="/storage{{ $item->file }}" loading="lazy"
                                                                alt="Индивидуалка {{ $post->name }}, доступна для личного знакомства от {{ $post->price }} руб">
                                 </div>
                             @endforeach
@@ -351,6 +351,7 @@
 
                             <div class="photo-with-comments-item d-flex">
                                 <img src="/storage{{ $item->file }}"
+                                     loading="lazy"
                                      alt="Индивидуалка {{ $post->name }}, доступна для личного знакомства от {{ $post->price }} руб">
                                 <div class="comments-form-wrap">
                                     <form action="/review/photo" method="post" class="add-review">
