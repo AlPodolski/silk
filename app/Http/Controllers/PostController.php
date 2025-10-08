@@ -28,7 +28,7 @@ class PostController extends Controller
     public function __invoke($city, $url, SingleMetaService $metaService, Request $request, AddViewToCookie $addViewToCookie)
     {
         $cityInfo = $this->cityRepository->getCity($city);
-        $post = $this->postRepository->getSingle($url);
+        $post = $this->postRepository->getSingle($url, $city);
         if (!$post) abort(404);
         $data = $this->dataRepository->getData($cityInfo['id']);
 

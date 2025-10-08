@@ -36,18 +36,19 @@ class PostRepository
      * @param $id
      * @return Post|null
      */
-    public function getSingle($url)
+    public function getSingle($url, $city)
     {
 
         $expire = Carbon::now()->addHours(1200);
 
-        $post = Cache::remember('post_' . $url, $expire, function () use ($url) {
+        $post = Cache::remember('post_' . $url.'-'.$city->id, $expire, function () use ($url, $city) {
 
             $post = Post::select('posts.*', 'nationals.value as national_value',
                 'hair_colors.value as hair_color', 'intim_hairs.value as intim_hair'
             )
                 ->with('service', 'metro', 'place', 'reviews', 'photo', 'rayon')
                 ->where('posts.url', $url)
+                ->where('posts.city_id', $city->id)
                 ->join('nationals', 'national_id', '=', 'nationals.id')
                 ->join('hair_colors', 'hair_color_id', '=', 'hair_colors.id')
                 ->join('intim_hairs', 'intim_hair_id', '=', 'intim_hairs.id')
