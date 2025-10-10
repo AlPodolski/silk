@@ -73,6 +73,7 @@
 
         gtag('config', 'G-5YMQCDMXJC');
     </script>
+    <link rel="preconnect" href="https://mc.yandex.ru">
 
 </head>
 <body>
