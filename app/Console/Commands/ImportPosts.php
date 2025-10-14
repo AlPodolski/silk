@@ -59,10 +59,10 @@ class ImportPosts extends Command
         $placeList = Place::all();
         $timeList = Time::all();
 
-        $stream = \fopen(storage_path('import_13_08_2025.csv'), 'r');
+        $stream = \fopen(storage_path('import_13_10_2025.csv'), 'r');
 
         $csv = Reader::createFromStream($stream);
-        $csv->setDelimiter(',');
+        $csv->setDelimiter(';');
         $csv->setHeaderOffset(0);
         //build a statement
         $stmt = (new Statement());
@@ -81,197 +81,199 @@ class ImportPosts extends Command
         }
 
 
-        $path = '/aa2/';
+        $path = '/aa3/';
 
-        shuffle($posts);
-
-        $prices = array( 1500, 2000, 2500, 3000, 4000, 5000, 10000);
+        $prices = array(1500, 2000, 2500, 3000, 4000, 5000, 10000);
 
         foreach ($posts as $record) {
 
-            $city = City::where('city', $record['City'])->first();
+            $sort = rand(1751291896, 1755077259);
 
-            if ($city) {
+            $post = new Post();
 
-                $post = new Post();
+            $price = $prices[array_rand($prices)];
 
-                $price = $prices[array_rand($prices)];
+            $cityId = 1;
 
-                $cityId = $city->id;
+            $post->name = $record['name'];
+            if ($record['age'] != '-') $post->age = $record['age'];
+            else $post->age = 28;
+            $post->phone = '';
+            if ($record['rost'] != '-') $post->rost = $record['rost'];
+            else $post->rost = 165;
+            if ($record['weight'] != '-' and $record['weight'] < 100) $post->ves = $record['weight'];
+            else $post->ves = 55;
+            if ($record['grud'] != '-') $post->breast = $record['grud'];
+            else $post->breast = 1;
+            $post->tatu = rand(0, 1);
+            $post->pircing = rand(0, 1);
+            $post->about = strip_tags($record['anket-about']);
+            $post->city_id = $cityId;
+            $post->check_photo_status = 0;
+            $post->price = $price;
+            $post->publication_status = 1;
+            $post->sorting = $sort;
+            $post->user_id = 0;
+            $post->url = '';
+            $post->apartament_2_hour_price = $post->price * 2;
+            $post->apartament_night_price = $post->price * 4;
+            $post->exit_1_hour_price = $post->price + 1000;
+            $post->exit_2_hour_price = ($post->price + 1000) * 2;
+            $post->exit_night_price = ($post->price + 1000) * 4;
 
-                $post->name = $record['name'];
-                if ($record['age'] != '-') $post->age = $record['age'];
-                else $post->age = 28;
-                $post->phone = '';
-                if ($record['rost'] != '-') $post->rost = $record['rost'];
-                else $post->rost = 165;
-                if ($record['weght'] != '-' and $record['weght'] < 100) $post->ves = $record['weght'];
-                else $post->ves = 55;
-                if ($record['grud'] != '-') $post->breast = $record['grud'];
-                else $post->breast = 1;
-                $post->tatu = rand(0, 1);
-                $post->pircing = rand(0, 1);
-                $post->about = strip_tags($record['deskr']);
-                $post->city_id = $cityId;
-                $post->check_photo_status = 0;
-                $post->price = $price;
-                $post->publication_status = 1;
-                $post->sorting = \time();
-                $post->user_id = 0;
-                $post->url = '';
-                $post->apartament_2_hour_price = $post->price * 2;
-                $post->apartament_night_price = $post->price * 4;
-                $post->exit_1_hour_price = $post->price + 1000;
-                $post->exit_2_hour_price = ($post->price + 1000) * 2;
-                $post->exit_night_price = ($post->price + 1000) * 4;
+            $post->shoe_size = rand(36, 41);
 
-                $post->shoe_size = rand(36, 41);
+            $post->clothing_size = 0;
 
-                $post->clothing_size = 0;
+            $post->contacts_per_hour = rand(1, 3);
 
-                $post->contacts_per_hour = rand(1, 3);
+            $post->avatar = $path . $record['mini'];
+            //if ($record['video']) $post->video = $path . $record['video'];
 
-                $post->avatar = $path . $record['mini'];
-                if ($record['video']) $post->video = $path . $record['video'];
+            if ($post->save()) {
 
-                if ($post->save()) {
+                $post->url = \Str::slug($post->name) . '-' . $post->id;
 
-                    $post->url = \Str::slug($post->name) . '-' . $post->id;
+                if ($record['metro']) {
 
-                    if ($record['metro']) {
+                    $dataList = explode(',', $record['metro']);
 
-                        $dataList = explode(',', $record['metro']);
+                    foreach ($dataList as $item) {
 
-                        foreach ($dataList as $item) {
+                        $lettersOnly = preg_replace('/[^a-zA-Zа-яА-ЯёЁ]/u', '', $item);
 
-                            if ($temp = Metro::where(['value' => $item, 'city_id' => $cityId])->get()->first()) {
+                        if ($temp = Metro::where(['value' => $lettersOnly, 'city_id' => $cityId])->get()->first()) {
 
-                                $postRelation = new PostMetro();
-                                $postRelation->city_id = $cityId;
-                                $postRelation->posts_id = $post->id;
-                                $postRelation->metros_id = $temp->id;
-
-                                $postRelation->save();
-
-                            }
-
-                        }
-
-                    }
-
-                    if ($record['gallery']) {
-
-                        $dataList = explode(',', $record['gallery']);
-
-                        foreach ($dataList as $item) {
-
-                            $file = new Photo();
-
-                            $file->posts_id = $post->id;
-                            $file->file = $path . $item;
-                            $file->type = Photo::GALLERY_TYPE;
-
-                            $file->save();
-
-                        }
-
-                    }
-
-                    if (isset($record['intim']) and $record['intim']) {
-
-                        if ($temp = IntimHair::where(['value' => $record['intim']])->get()->first()) {
-
-                            $post->intim_hair_id = $temp->id;
-
-                        }
-
-                    }
-
-                    if ($record['hair']) {
-
-                        if ($temp = HairColor::where(['value' => $record['hair']])->get()->first()) {
-
-                            $post->hair_color_id = $temp->id;
-
-                        }
-
-                    }
-
-                    if (false and isset($record['rayon']) and $record['rayon']) {
-
-                        if ($temp = Rayon::where(['value' => $record['rayon']])->get()->first()) {
-
-                            $post->rayon_id = $temp->id;
-
-                        }
-
-                    }
-
-                    if (isset($record['ethnic']) and $record['ethnic']) {
-
-                        if ($temp = National::where(['value' => $record['ethnic']])->get()->first()) {
-
-                            $post->national_id = $temp->id;
-
-                        }
-
-                    }
-
-                    foreach ($serviceList as $service) {
-
-                        $postService = new PostService();
-
-                        $postService->posts_id = $post->id;
-                        $postService->service_id = $service->id;
-                        $postService->city_id = $cityId;
-
-                        $status = rand(0, 3);
-
-                        if ($status == 0) $postService->sympathy = 1;
-                        if ($status == 1) $postService->pay = 1;
-                        if ($status == 3) $postService->not_available = 1;
-
-                        $postService->save();
-
-                    }
-
-                    foreach ($placeList as $item) {
-
-                        if (rand(0, 1)) {
-
-                            $postRelation = new PostPlace();
+                            $postRelation = new PostMetro();
                             $postRelation->city_id = $cityId;
                             $postRelation->posts_id = $post->id;
-                            $postRelation->place_id = $item->id;
+                            $postRelation->metros_id = $temp->id;
 
                             $postRelation->save();
 
                         }
 
                     }
-
-                    foreach ($timeList as $item) {
-
-                        if (rand(0, 1)) {
-
-                            $postRelation = new PostTime();
-                            $postRelation->city_id = $cityId;
-                            $postRelation->posts_id = $post->id;
-                            $postRelation->times_id = $item->id;
-
-                            $postRelation->save();
-
-                        }
-
-                    }
-
-                    $post->save();
-
-                    echo $post->id . PHP_EOL;
 
                 }
 
+                if ($record['gallery']) {
+
+                    $dataList = explode(',', $record['gallery']);
+
+                    foreach ($dataList as $item) {
+
+                        $file = new Photo();
+
+                        $file->posts_id = $post->id;
+                        $file->file = $path . $item;
+                        $file->type = Photo::GALLERY_TYPE;
+
+                        $file->save();
+
+                    }
+
+                }
+
+                if (isset($record['intim']) and $record['intim']) {
+
+                    if ($temp = IntimHair::where(['value' => $record['intim']])->get()->first()) {
+
+                        $post->intim_hair_id = $temp->id;
+
+                    }
+
+                }
+
+                if ($record['hair']) {
+
+                    if ($temp = HairColor::where(['value' => $record['hair']])->get()->first()) {
+
+                        $post->hair_color_id = $temp->id;
+
+                    }
+
+                }
+
+                if (isset($record['rayon']) and $record['rayon']) {
+
+                    $rayonData = explode(',', $record['rayon']);
+
+                    $lettersOnly = preg_replace('/[^a-zA-Zа-яА-ЯёЁ]/u', '', $rayonData[1]);
+
+                    if ($temp = Rayon::where(['value' => $lettersOnly])->first()) {
+
+                        $post->rayon_id = $temp->id;
+
+                    }
+
+                }
+
+                if (isset($record['ethnic']) and $record['ethnic']) {
+
+                    if ($temp = National::where(['value' => $record['ethnic']])->get()->first()) {
+
+                        $post->national_id = $temp->id;
+
+                    }
+
+                }
+
+                foreach ($serviceList as $service) {
+
+                    $postService = new PostService();
+
+                    $postService->posts_id = $post->id;
+                    $postService->service_id = $service->id;
+                    $postService->city_id = $cityId;
+
+                    $status = rand(0, 3);
+
+                    if ($status == 0) $postService->sympathy = 1;
+                    if ($status == 1) $postService->pay = 1;
+                    if ($status == 3) $postService->not_available = 1;
+
+                    $postService->save();
+
+                }
+
+                foreach ($placeList as $item) {
+
+                    if (rand(0, 1)) {
+
+                        $postRelation = new PostPlace();
+                        $postRelation->city_id = $cityId;
+                        $postRelation->posts_id = $post->id;
+                        $postRelation->place_id = $item->id;
+
+                        $postRelation->save();
+
+                    }
+
+                }
+
+                foreach ($timeList as $item) {
+
+                    if (rand(0, 1)) {
+
+                        $postRelation = new PostTime();
+                        $postRelation->city_id = $cityId;
+                        $postRelation->posts_id = $post->id;
+                        $postRelation->times_id = $item->id;
+
+                        $postRelation->save();
+
+                    }
+
+                }
+
+                $post->save();
+
+                echo $post->id . PHP_EOL;
+
             }
+
+            exit();
 
         }
 
