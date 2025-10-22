@@ -66,37 +66,6 @@
                 </button>
             </form>
         </div>
-        <h2 class="ammount__subtite subtitle">
-            Воспользуйтесь быстрым платежом для экономии времени.
-        </h2>
-        <div class="ammount__fast-items ammount__block">
-
-            @foreach($fastSum as $item)
-                <div class="ammount__fast-item">
-
-                    <div class="ammount__fast-item-header">
-                        <div class="ammount__fast-item-balance">
-                            {{ $item }} руб.
-                        </div>
-                        @php
-                            if ($item >= $bonusSum){
-                                $sum = $item + ($item / 100 * 10) ;
-                            }
-                            else {
-                                $sum = $item;
-                            }
-                        @endphp
-                        <div data-sum="{{ $sum }}" onclick="setSum(this)"
-                             class="ammount__fast-item-btn btn-main">
-                            Оплатить
-                        </div>
-                    </div>
-
-                </div>
-            @endforeach
-
-        </div>
-
     </main>
 
 @endsection
