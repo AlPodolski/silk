@@ -73,7 +73,7 @@ class PostController extends Controller
 
                        if ($row->checkPhoto){
 
-                           $photo = '<img loading="lazy" src="/211-300/thumbs/' . $row->checkPhoto->file . '" alt="">';
+                           $photo = '<img loading="lazy" src="/thumbnail/600-800/' . $row->checkPhoto->file . '" alt="">';
 
                            $checkBox = '<input type="checkbox" class="check-photo" name="check" data-id="'.$row->id.'">';
 
@@ -88,7 +88,7 @@ class PostController extends Controller
                     'format' => 'html',
                     'value' => function ($row) {
                         /* @var $row Post */
-                        return '<img loading="lazy" src="/300-300/thumbs/' . $row->avatar . '" alt="">';
+                        return '<img loading="lazy" src="/thumbnail/600-800/' . $row->avatar . '" alt="">';
 
                     },
                 ],
