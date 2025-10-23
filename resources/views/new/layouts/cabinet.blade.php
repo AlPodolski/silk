@@ -62,7 +62,6 @@
     </div>
 
 </div>
-<script defer src="/js/bundle.js"></script>
 <script defer src="/js/cabinet.js?v=2"></script>
 </body>
 

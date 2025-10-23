@@ -49,7 +49,7 @@ class PostController extends Controller
 
         $tarifList = Tarif::all();
 
-        return view(PATH . '.cabinet.post.add', compact('data', 'tarifList', 'notReadMessage'));
+        return view( 'new.cabinet.post.add', compact('data', 'tarifList', 'notReadMessage'));
     }
 
     public function store(Request $request)
