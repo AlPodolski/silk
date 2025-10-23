@@ -21,7 +21,7 @@
                             <use xlink:href='/svg/dest/stack/sprite.svg#cross'></use>
                         </svg>
                     </button>
-                    <img class="anket__main-photo-img" data-placeholder="/intim-box/images/cabinet/user-placeholder.png"
+                    <img class="anket__main-photo-img" data-placeholder="/images/user-placeholder.png"
                          alt="">
                     <div class="anket__main-photo-input">
                         <label for="anketPhoto" tabindex="0">+</label>
