@@ -149,7 +149,7 @@
                             </svg>
                         </button>
                     </form>
-                    <a href="/cabinet" class="login-btn">
+                    <a rel=”nofollow” href="/cabinet" class="login-btn">
                         <svg xmlns="https://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 18 18" fill="none">
                             <g clip-path="url(#clip0_580_68)">
                                 <path

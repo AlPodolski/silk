@@ -20,5 +20,8 @@ Disallow: */amp/*
 
 Clean-param: p
 
+Disallow: /login
+Disallow: /register
+
 Sitemap: https://{{$host}}/sitemap_post.xml
 Sitemap: https://{{$host}}/sitemap_page.xml
