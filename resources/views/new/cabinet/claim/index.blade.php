@@ -28,7 +28,7 @@
                                 ">
                                 <div class="chat__dialog-list-item-text">
                                     @if($item->related_class == \App\Models\File::class)
-                                        <img src="/400-500/thumbs/{{ $item->file->path }}" alt="">
+                                        <img src="/thumbnail/400-500/{{ $item->file->path }}" alt="">
                                     @else
                                         {{ $item->message }}
                                     @endif
@@ -59,7 +59,7 @@
                 <form action="" id="send-message-photo-form" enctype="multipart/form-data">
                     <label for="chatFile">
                         <svg>
-                            <use xlink:href='/intim-box/svg/dest/stack/cabinet.svg#addFile'></use>
+                            <use xlink:href='/svg/dest/stack/cabinet.svg#addFile'></use>
                         </svg>
                     </label>
                     <input onchange="send_photo()" type="file" name="chatFile" id="chatFile" accept=".jpg, .jpeg">

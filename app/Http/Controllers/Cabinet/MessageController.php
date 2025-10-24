@@ -36,7 +36,7 @@ class MessageController extends Controller
 
             (new SendMessageAction())->send(null, auth()->user()->id, File::class, $file->id);
 
-            return view(PATH.'.cabinet.message.photo', ['file' => $file->path]);
+            return view('new.cabinet.message.photo', ['file' => $file->path]);
 
         }
 

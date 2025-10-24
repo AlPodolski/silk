@@ -7,6 +7,7 @@
     @include('admin.include.nav')
 
     <main class=" chat admin-chat">
+        <link rel="stylesheet" href="/css/cabinet.css?v=7">
         @include('new.cabinet.include.message')
 
         <div class="chat__list">

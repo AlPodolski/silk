@@ -14,7 +14,7 @@
             ">
                 <div class="chat__dialog-list-item-text">
                     @if($item->related_class == \App\Models\File::class)
-                        <img src="/800-1000/thumbs/{{ $item->file->path }}" alt="">
+                        <img src="/thumbnail/600-800/{{ $item->file->path }}" alt="">
                     @else
                         {{ $item->message }}
                     @endif
