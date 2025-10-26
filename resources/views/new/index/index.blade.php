@@ -29,7 +29,7 @@
 
 @if(isset($post->avatar))
     @section('preload_img')
-        <link rel="preload" as="image" href="/thumbnail/600-800{{ $post->avatar }}" type="image/jpeg">
+        <link rel="preload" as="image" href="/thumbnail/600-800/{{ $post->avatar }}" type="image/jpeg">
     @endsection
 @endif
 
