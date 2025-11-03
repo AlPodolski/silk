@@ -6,6 +6,7 @@ use App\Models\ActualCityInfo;
 use App\Models\City;
 use App\Models\Metro;
 use App\Models\MetroNear;
+use App\Models\Photo;
 use App\Models\Post;
 use App\Models\PostMetro;
 use App\Repository\DataRepository;
@@ -35,92 +36,102 @@ class CustCommand extends Command
 
         foreach ($posts as $post) {
 
-            $post->avatar = '/aaa/'.$images[array_rand($images)];
+            shuffle($images);
 
-            $post->save();
+            foreach ($images as $image) {
+
+                $photo = new Photo();
+                $photo->posts_id = $post->id;
+                $photo->file = '/aaa/'.$image;
+                $photo->type = Photo::GALLERY_TYPE;
+                $photo->save();
+
+            }
 
         }
+
     }
 
-    private function prepareData($data, $host){
+    private function prepareData($data, $host)
+    {
 
         $result = array();
 
-        if ($data['metro']){
+        if ($data['metro']) {
 
-            foreach ($data['metro'] as $item){
+            foreach ($data['metro'] as $item) {
 
-                $result[] = $host.$item->filter_url;
-
-            }
-
-        }
-
-        if ($data['rayon']){
-
-            foreach ($data['rayon'] as $item){
-
-                $result[] = $host.$item->filter_url;
+                $result[] = $host . $item->filter_url;
 
             }
 
         }
 
-        if ($data['national']){
+        if ($data['rayon']) {
 
-            foreach ($data['national'] as $item){
+            foreach ($data['rayon'] as $item) {
 
-                $result[] = $host.$item->filter_url;
-
-            }
-
-        }
-
-        if ($data['place']){
-
-            foreach ($data['place'] as $item){
-
-                $result[] = $host.$item->filter_url;
+                $result[] = $host . $item->filter_url;
 
             }
 
         }
 
-        if ($data['time']){
+        if ($data['national']) {
 
-            foreach ($data['time'] as $item){
+            foreach ($data['national'] as $item) {
 
-                $result[] = $host.$item->filter_url;
-
-            }
-
-        }
-
-        if ($data['hair']){
-
-            foreach ($data['hair'] as $item){
-
-                $result[] = $host.$item->filter_url;
+                $result[] = $host . $item->filter_url;
 
             }
 
         }
 
-        if ($data['intimHair']){
+        if ($data['place']) {
 
-            foreach ($data['intimHair'] as $item){
+            foreach ($data['place'] as $item) {
 
-                $result[] = $host.$item->filter_url;
+                $result[] = $host . $item->filter_url;
 
             }
 
         }
 
-        if ($data['service']){
+        if ($data['time']) {
 
-            foreach ($data['service'] as $item){
+            foreach ($data['time'] as $item) {
 
-                $result[] = $host.$item->filter_url;
+                $result[] = $host . $item->filter_url;
+
+            }
+
+        }
+
+        if ($data['hair']) {
+
+            foreach ($data['hair'] as $item) {
+
+                $result[] = $host . $item->filter_url;
+
+            }
+
+        }
+
+        if ($data['intimHair']) {
+
+            foreach ($data['intimHair'] as $item) {
+
+                $result[] = $host . $item->filter_url;
+
+            }
+
+        }
+
+        if ($data['service']) {
+
+            foreach ($data['service'] as $item) {
+
+                $result[] = $host . $item->filter_url;
 
             }
 

@@ -131,9 +131,39 @@ header {
     font: inherit;            /* наследуем шрифт и размер */
     line-height: inherit;
     cursor: pointer;
-    width: 34px;
+    width: 16px;
     height: 34px;
-    right: -10px;
+    right: 10px;
+}
+
+.params{
+    padding-top: 25px;
+}
+
+.single-price{
+    margin-top: 25px;
+    color: #fff;
+    font-size: 20px;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.price-heading{
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.apart-price , .journey-price{
+    width: 48%;
+    flex-direction: column;
+}
+
+.price-item-wrap{
+    margin-top: auto;
+}
+.price-item{
+    display: flex;
+    justify-content: space-between;
 }
 
 .search-name-input{
@@ -238,11 +268,15 @@ h1{
     padding-inline: 5px;
 }
 
-.posts {
+.posts , .more-posts-wrap{
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     gap: 16px;
     padding-block: 16px;
+}
+
+.single{
+    margin-bottom: 25px;
 }
 
 .more-posts{
@@ -302,6 +336,111 @@ h1{
     border: 1px solid #eee;
     background: #f8f8f8;
     cursor: not-allowed;
+}
+
+.breadcrumbs {
+    font-size: 14px;
+    color: #fff;
+    margin-bottom: 13px;
+}
+
+.breadcrumbs ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.breadcrumbs a {
+    color: rgba(255, 255, 255, 0.9);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.breadcrumbs a:hover {
+    color: #fff;
+    text-decoration: underline;
+}
+
+.breadcrumbs .breadcrumb-item {
+    color: #fff;
+    opacity: 0.8;
+}
+
+/* Добавим стрелочку между элементами */
+.breadcrumbs li:not(:last-child)::after {
+    content: "›";
+    margin: 0 6px;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.about-heading{
+    font-size: 24px;
+    color: #FFF;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.about-text{
+    font-size: 20px;
+    color: #FFF;
+}
+
+.list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 14px;
+}
+
+/* квадрат слева */
+.check {
+    width: 14px;
+    height: 14px;
+    border: 2px solid #ff6a5c; /* рамка */
+    border-radius: 4px;
+    display: grid;
+    place-items: center;
+    background: transparent;
+}
+
+/* когда пункт "отмечен" */
+.item.done .check {
+    background: #ff6a5c;
+    border-color: #ff6a5c;
+}
+
+/* сама галочка */
+.check-icon {
+    width: 8px;
+    height: 7px;
+    border-left: 2px solid #fff;
+    border-bottom: 2px solid #fff;
+    transform: rotate(-45deg);
+    display: none;
+}
+
+/* показываем галочку только у отмеченных */
+.item.done .check-icon {
+    display: block;
+}
+
+.label {
+    font-size: 18px;
+    color: #fff;
+}
+.about-post{
+    margin-bottom: 25px;
 }
 
 @media (max-width: 992px) {
