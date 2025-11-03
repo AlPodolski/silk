@@ -61,6 +61,20 @@
             <div class="phone" data-id="{{ $post->id }}" data-city="{{ $post->city_id }}" onclick="call(this)">
                 Показать номер
             </div>
+            <div class="body-params">
+                <div class="body-param-tem d-flex">
+                    <div class="body-param-name">Рост:</div>
+                    <div class="body-param-value">{{ $post->rost }}</div>
+                </div>
+                <div class="body-param-tem d-flex">
+                    <div class="body-param-name">Грудь:</div>
+                    <div class="body-param-value">{{ $post->breast }}</div>
+                </div>
+                <div class="body-param-tem d-flex">
+                    <div class="body-param-name">Вес:</div>
+                    <div class="body-param-value">{{ $post->ves }}</div>
+                </div>
+            </div>
             <div class="single-price d-flex">
                 <div class="apart-price d-flex">
                     <div class="price-heading">

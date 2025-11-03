@@ -88,11 +88,11 @@ header {
     padding-bottom: 5px;
 }
 
-.d-flex{
+.d-flex {
     display: flex;
 }
 
-.map-btn{
+.map-btn {
     margin-left: auto;
     color: #fff;
     border-radius: 3px;
@@ -102,33 +102,36 @@ header {
     padding: 3px;
 }
 
-.map-btn svg{
+.map-btn svg {
     margin-left: 3px;
 }
 
-.top-header{
+.top-header {
     align-items: center;
     padding: 12px 0;
 }
 
-.position-relative{
+.position-relative {
     position: relative;
 }
-.position-absolute{
+
+.position-absolute {
     position: absolute;
 }
-.name, .price{
+
+.name, .price {
     margin-bottom: 13px;
 }
-.search-btn{
-    appearance: none;         /* убирает системный стиль */
+
+.search-btn {
+    appearance: none; /* убирает системный стиль */
     -webkit-appearance: none;
     background: transparent;
     border: none;
     padding: 0;
     margin: 0;
     color: inherit;
-    font: inherit;            /* наследуем шрифт и размер */
+    font: inherit; /* наследуем шрифт и размер */
     line-height: inherit;
     cursor: pointer;
     width: 16px;
@@ -136,11 +139,11 @@ header {
     right: 10px;
 }
 
-.params{
+.params {
     padding-top: 25px;
 }
 
-.single-price{
+.single-price {
     margin-top: 25px;
     color: #fff;
     font-size: 20px;
@@ -148,25 +151,26 @@ header {
     margin-bottom: 30px;
 }
 
-.price-heading{
+.price-heading {
     font-weight: 700;
     margin-bottom: 20px;
 }
 
-.apart-price , .journey-price{
+.apart-price, .journey-price {
     width: 48%;
     flex-direction: column;
 }
 
-.price-item-wrap{
+.price-item-wrap {
     margin-top: auto;
 }
-.price-item{
+
+.price-item {
     display: flex;
     justify-content: space-between;
 }
 
-.search-name-input{
+.search-name-input {
     border-radius: 3px;
     background: #3C3247;
     box-shadow: 0 8px 5.1px 0 rgba(0, 0, 0, 0.12) inset;
@@ -176,7 +180,7 @@ header {
     padding-left: 12px;
 }
 
-.link{
+.link {
     color: #FFF;
     font-size: 16px;
     padding: 10px;
@@ -186,16 +190,16 @@ header {
     box-shadow: 0 8px 5.1px 0 rgba(0, 0, 0, 0.12) inset;
 }
 
-.links{
+.links {
     margin-bottom: 30px;
 }
 
-body{
+body {
     font-family: ubuntu;
     background: linear-gradient(167deg, #1D2235 0%, #6F3B5B 50%, #1D2235 100%);
 }
 
-h1{
+h1 {
     text-align: center;
     color: #FFF;
     font-size: 20px;
@@ -203,49 +207,53 @@ h1{
     margin-bottom: 25px;
 }
 
-.name-wrap{
+.name-wrap {
     bottom: 19px;
     width: 100%;
     justify-content: space-between;
 }
-.list-name, .price{
+
+.list-name, .price {
     font-size: 20px;
     color: #fff;
     align-items: center;
     font-weight: 700;
 }
-.price{
+
+.price {
     margin-right: 13px;
 }
-.check-post{
+
+.check-post {
     margin-right: 4px;
 }
-.post{
+
+.post {
     margin-bottom: 15px;
     display: flex;
     flex-direction: column;
 }
 
-.bottom-post-info-item{
+.bottom-post-info-item {
     color: #FFF;
     font-size: 18px;
 }
 
-.bottom-post-info-items{
+.bottom-post-info-items {
     justify-content: space-between;
     margin-bottom: 13px;
 }
 
-.bottom-post-info{
+.bottom-post-info {
     padding: 24px 13px;
 }
 
-.metro{
+.metro {
     color: #FFF;
     font-size: 18px;
 }
 
-.phone{
+.phone {
     border-radius: 3px;
     background: linear-gradient(90deg, #FF3B2F 0%, #E44F1D 50.48%, #D7433A 100%);
     box-shadow: 0 5px 4.3px 0 rgba(60, 50, 71, 0.75);
@@ -256,7 +264,8 @@ h1{
     padding-bottom: 10px;
     margin-top: auto;
 }
-.post{
+
+.post {
     background: linear-gradient(167deg, #1D2235 0%, #6F3B5B 50%, #1D2235 100%);
     border: 1px solid #3C3247;
 }
@@ -268,18 +277,24 @@ h1{
     padding-inline: 5px;
 }
 
-.posts , .more-posts-wrap{
+.posts, .more-posts-wrap {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     gap: 16px;
     padding-block: 16px;
 }
 
-.single{
+.single {
     margin-bottom: 25px;
 }
 
-.more-posts{
+.body-param-tem {
+    color: #FFF;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.more-posts {
     border-radius: 3px;
     background: linear-gradient(90deg, #FF3B2F 0%, #E44F1D 50.48%, #D7433A 100%);
     box-shadow: 0 5px 4.3px 0 rgba(60, 50, 71, 0.75);
@@ -377,7 +392,7 @@ h1{
     color: rgba(255, 255, 255, 0.6);
 }
 
-.about-heading{
+.about-heading {
     font-size: 24px;
     color: #FFF;
     font-weight: 700;
@@ -385,7 +400,7 @@ h1{
     margin-bottom: 15px;
 }
 
-.about-text{
+.about-text {
     font-size: 20px;
     color: #FFF;
 }
@@ -439,8 +454,224 @@ h1{
     font-size: 18px;
     color: #fff;
 }
-.about-post{
+
+.about-post {
     margin-bottom: 25px;
+}
+
+.single {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.main-photo {
+    flex: 1 1 50%;
+    min-height: 300px;
+    max-width: 50%;
+}
+
+.params {
+    flex: 1 1 50%;
+    padding: 24px;
+    max-width: 50%;
+}
+
+.body-params {
+    margin-top: 25px;
+}
+
+.burger-menu span {
+    display: block;
+    height: 3px;
+    background: var(--text);
+    border-radius: 3px;
+    transition: transform .25s ease, opacity .25s ease, width .25s ease;
+}
+
+/* Оверлей */
+.menu-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, .4);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .25s ease;
+    z-index: 99;
+}
+
+/* Боковая панель */
+.side-menu {
+    position: fixed;
+    inset: 0 auto 0 0;
+    width: min(85vw, 360px);
+    background: var(--grad);
+    color: var(--text);
+    transform: translateX(-100%);
+    transition: transform .25s ease;
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    padding: 20px 16px 24px;
+    box-shadow: 6px 0 24px rgba(0, 0, 0, .35);
+    overflow: auto;
+}
+
+.catalog-heading{
+    margin: 4px 0 10px;
+    color: var(--text);
+    opacity: .9;
+}
+
+.acc__list{
+    list-style: none;
+    margin: 0;
+    padding: 0 0 4px 0;
+}
+
+.acc__list li + li{ margin-top: 6px; }
+
+/* Контент меню */
+.menu {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.menu__item, .menu__subitem, .acc__btn {
+    color: var(--text);
+    text-decoration: none;
+    padding: 5px 10px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, .06);
+}
+
+.menu__item:hover, .menu__subitem:hover, .acc__btn:hover {
+    background: rgba(255, 255, 255, .12);
+}
+
+.menu__subitem {
+    font-weight: 500;
+    font-size: 15px;
+    margin-left: 6px
+}
+
+/* Аккордеон */
+.menu__acc {
+    display: flex;
+    flex-direction: column;
+    gap: 8px
+}
+
+.acc__btn {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    border: 0;
+    background: rgba(255, 255, 255, .06);
+    cursor: pointer;
+}
+
+.acc__icon {
+    width: 14px;
+    height: 14px;
+    display: inline-block;
+    position: relative;
+    flex: 0 0 14px;
+}
+
+.acc__icon::before, .acc__icon::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    background: var(--text);
+    transition: transform .2s ease, opacity .2s ease;
+    border-radius: 2px;
+}
+
+.acc__icon::before {
+    width: 14px;
+    height: 2px;
+}
+
+.acc__icon::after {
+    width: 2px;
+    height: 14px;
+}
+
+/* раскрытое состояние */
+.menu__acc[open] .acc__btn,
+.acc__btn[aria-expanded="true"] {
+    outline: 2px solid color-mix(in srgb, var(--accent) 70%, transparent);
+    background: rgba(255, 255, 255, .12);
+}
+
+.menu__acc[open] .acc__icon::after,
+.acc__btn[aria-expanded="true"] .acc__icon::after {
+    transform: scaleY(0);
+    opacity: 0;
+}
+
+.acc__panel {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 6px 4px 2px 8px
+}
+
+/* Состояние “открыто” */
+.is-menu-open .side-menu {
+    transform: translateX(0)
+}
+
+.is-menu-open .menu-overlay {
+    opacity: 1;
+    pointer-events: auto
+}
+
+/* Блокировка прокрутки страницы при открытом меню */
+.is-menu-open {
+    overflow: hidden
+}
+
+:root{
+    --grad: linear-gradient(167deg, #1D2235 0%, #6F3B5B 50%, #1D2235 100%);
+    --text: #fff;
+    --accent:#FF3B2F;
+}
+
+/* Анимации по предпочтениям пользователя */
+@media (prefers-reduced-motion: reduce) {
+    .side-menu, .menu-overlay, .burger-menu span {
+        transition: none
+    }
+}
+
+/* Десктоп: фикс ширина, всё остальное ок */
+@media (min-width: 1024px) {
+    .side-menu {
+        width: 360px
+    }
+}
+
+@media (max-width: 992px) {
+    .single {
+        flex-direction: column;
+    }
+
+    .main-photo {
+        flex: 1 1 100%;
+        min-height: 220px;
+        max-width: 100%;
+    }
+
+    .params {
+        flex: 1 1 100%;
+        padding: 0px;
+        padding-top: 25px;
+        max-width: 100%;
+    }
 }
 
 @media (max-width: 992px) {
@@ -459,7 +690,8 @@ h1{
     .container {
         max-width: 100%;
     }
-    .burger-menu{
+
+    .burger-menu {
         margin-left: 30px;
     }
 }

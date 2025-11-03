@@ -71,11 +71,11 @@
         {!! str_replace('http', 'https', $posts->links('vendor.pagination.bootstrap-4')) !!}
     @endif
 
+    @include('new.include.catalog-menu')
+
 @endsection
 
 @section('open-graph')
     @include('new.include.open-graph', ['title' => $meta['title'], 'des' => $meta['des'], 'image' => '/images/logo.svg'])
 @endsection
-@section('catalog')
-    @include('new.include.catalog-menu')
-@endsection
+

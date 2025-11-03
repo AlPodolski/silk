@@ -1,3 +1,43 @@
+// Тоггл меню
+const html = document.documentElement;
+const burger = document.querySelector('.burger-menu');
+const sideMenu = document.getElementById('side-menu');
+const overlay = document.querySelector('.menu-overlay');
+
+function openMenu(){
+    html.classList.add('is-menu-open');
+    burger.setAttribute('aria-expanded','true');
+    sideMenu.setAttribute('aria-hidden','false');
+    sideMenu.focus?.();
+}
+function closeMenu(){
+    html.classList.remove('is-menu-open');
+    burger.setAttribute('aria-expanded','false');
+    sideMenu.setAttribute('aria-hidden','true');
+}
+burger.addEventListener('click', ()=>{
+    const isOpen = html.classList.contains('is-menu-open');
+    isOpen ? closeMenu() : openMenu();
+});
+overlay.addEventListener('click', closeMenu);
+document.addEventListener('keydown', (e)=>{
+    if(e.key === 'Escape') closeMenu();
+});
+
+// Аккордеоны (без <details>)
+document.querySelectorAll('.acc__btn').forEach((btn)=>{
+    const panel = btn.nextElementSibling;
+    btn.addEventListener('click', ()=>{
+        const expanded = btn.getAttribute('aria-expanded') === 'true';
+        // сворачиваем все остальные (аккордеон-режим)
+        document.querySelectorAll('.acc__btn[aria-expanded="true"]').forEach(b=>{
+            if(b!==btn){ b.setAttribute('aria-expanded','false'); b.nextElementSibling.hidden = true; }
+        });
+        btn.setAttribute('aria-expanded', String(!expanded));
+        panel.hidden = expanded;
+    });
+});
+
 function call(object) {
     const id = object.getAttribute('data-id');
     const city = object.getAttribute('data-city');
