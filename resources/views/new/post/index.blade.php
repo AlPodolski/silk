@@ -174,7 +174,6 @@
         @endforeach
     </div>
 
-@endsection
-@section('catalog')
     @include('new.include.catalog-menu')
+
 @endsection

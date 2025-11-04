@@ -18,12 +18,8 @@
     @include('new.include.location_metro')
 @endsection
 
-@section('links')
-    @include('new.include.link')
-@endsection
-
 @php
-$post = $posts->first();
+    $post = $posts->first();
 @endphp
 
 @if(isset($post->avatar))
@@ -44,25 +40,19 @@ $post = $posts->first();
 
     @include('new.include.breadcrumb')
 
-    <div class="row content">
+    @include('new.include.link')
 
+    <h1>{{ $meta['h1'] }}</h1>
+    <div class="posts">
         @php
             $i = 0;
-            $review = false;
         @endphp
-
-        @if($posts)
-            @foreach($posts as $post)
-                @include('new.include.item')
-                @php
-                    $i ++;
-                    if ($post->reviews->first()){
-                        $review = true;
-                    }
-                @endphp
-            @endforeach
-        @endif
-
+        @foreach($posts as $post)
+            @include('new.include.item')
+            @php
+                $i++;
+            @endphp
+        @endforeach
     </div>
 
     @if($posts and $posts->total() > $posts->count())
@@ -72,7 +62,10 @@ $post = $posts->first();
         </div>
 
         {!! str_replace('http', 'https', $posts->links('vendor.pagination.bootstrap-4')) !!}
+
     @endif
+
+    @include('new.include.catalog-menu')
 
 @endsection
 

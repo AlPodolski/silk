@@ -43,12 +43,6 @@
         {!! $webSiteMicro !!}
     @endif
 
-    <div class="links d-flex">
-        <a href="#" class="link">Новые</a>
-        <a href="#" class="link">Элитные</a>
-        <a href="#" class="link">Инди</a>
-        <a href="#" class="link">Инди</a>
-    </div>
     <h1>{{ $meta['h1'] }}</h1>
     <div class="posts">
         @php

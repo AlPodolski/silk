@@ -19,7 +19,7 @@
     @endif
 
     <link rel="stylesheet" href="/fonts/ubuntu/ubuntu.css?v=1">
-    <link rel="stylesheet" href="/css/style.css?v=1">
+    <link rel="stylesheet" href="/css/style.css?v=2">
 
 
     <meta property="og:title" content="@yield('title')"/>
@@ -111,7 +111,8 @@
             </div>
         </div>
         <div class="bottom-header">
-            <form class="position-relative" action="">
+            <form class="position-relative" action="/name">
+                @csrf
                 <input type="text" name="name" placeholder="Имя" class="search-name-input">
                 <button type="submit" class="position-absolute search-btn">
                     <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 13 13" fill="none">
@@ -136,6 +137,6 @@
         @yield('content')
     </div>
 </main>
-<script defer src="/js/script.js?v=1"></script>
+<script defer src="/js/script.js?v=2"></script>
 </body>
 </html>
