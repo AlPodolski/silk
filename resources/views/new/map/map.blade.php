@@ -26,15 +26,8 @@
         </div>
     </div>
 
+    @include('new.include.catalog-menu')
 
-@endsection
-
-@section('main-menu')
-    @include('new.include.main-menu', compact('data'))
-@endsection
-
-@section('location')
-    @include('new.include.location', compact('data'))
 @endsection
 
 @section('open-graph')
