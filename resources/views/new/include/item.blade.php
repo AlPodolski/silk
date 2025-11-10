@@ -4,7 +4,7 @@
 
 <div class="post">
     <div class="position-relative">
-        <a href="/user/{{ $post->url }}">
+        <a href="{{ $post->getSingleUrlAttribute() }}">
             <img @if(isset($i) and $i > 0) loading="lazy" @endif src="/thumbnail/600-800/{{ $post->avatar }}"
                  alt="{{ $post->name }} привлекальеная девушка из {{ $post->city->city2 }} цена от {{ $post->price }} руб">
         </a>
@@ -23,7 +23,7 @@
                     </svg>
                 </div>
             @endif
-            <a href="/user/{{ $post->url }}" class="list-name">{{ $post->name }}, {{ $post->age }}</a>
+            <a href="{{ $post->getSingleUrlAttribute() }}" class="list-name">{{ $post->name }}, {{ $post->age }}</a>
         </div>
         <div class="price">
             {{ $post->price }}/час

@@ -6,6 +6,7 @@ use App\Actions\AddViewToCookie;
 use App\Actions\GenerateBreadcrumbMicro;
 use App\Actions\GenerateImageMicro;
 use App\Actions\GenerateProductMicroForSingle;
+use App\Models\Filter;
 use App\Models\Post;
 use App\Services\SingleMetaService;
 use Illuminate\Http\Request;
@@ -25,7 +26,7 @@ class PostController extends Controller
         parent::__construct();
     }
 
-    public function __invoke($city, $url, SingleMetaService $metaService, Request $request, AddViewToCookie $addViewToCookie)
+    public function __invoke($city, $category, $url, SingleMetaService $metaService, Request $request, AddViewToCookie $addViewToCookie)
     {
         $cityInfo = $this->cityRepository->getCity($city);
         $post = $this->postRepository->getSingle($url, $cityInfo);
@@ -33,7 +34,7 @@ class PostController extends Controller
         $data = $this->dataRepository->getData($cityInfo['id']);
 
         $meta = $metaService->makeMetaTags($post, $cityInfo);
-        $breadMicro = $this->breadMicro->generate($request, $post->name);
+        $breadMicro = $this->breadMicro->generateForSingle($request, $post->name, $post);
         $imageMicro = $this->imageMicro->generate($post, $cityInfo['city']);
         $productMicro = (new GenerateProductMicroForSingle($post))->generate($cityInfo);
 

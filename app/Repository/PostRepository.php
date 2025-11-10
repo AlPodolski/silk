@@ -25,7 +25,7 @@ class PostRepository
     {
         $posts = Post::where('city_id', $cityId)
             ->where(['publication_status' => Post::POST_ON_PUBLICATION])
-            ->with('metro', 'city', 'photo', 'checkPhoto')
+            ->with('metro', 'national')
             ->orderByRaw($this->sort)
             ->paginate($this->postLimit);
 
@@ -46,7 +46,7 @@ class PostRepository
             $post = Post::select('posts.*', 'nationals.value as national_value',
                 'hair_colors.value as hair_color', 'intim_hairs.value as intim_hair'
             )
-                ->with('service', 'metro', 'place', 'reviews', 'photo', 'rayon')
+                ->with('service', 'metro', 'place', 'reviews', 'photo', 'rayon', 'national')
                 ->where('posts.url', $url)
                 ->where('posts.city_id', $city->id)
                 ->join('nationals', 'national_id', '=', 'nationals.id')
@@ -163,9 +163,9 @@ class PostRepository
             if ($metro = $post->metro->first()) {
 
                 $result[] = [
-                    'avatar' => '/211-300/thumbs/' . $post->avatar,
+                    'avatar' => '/thumbnail/300-400/' . $post->avatar,
                     'phone' => $post->phone,
-                    'url' => $post->url,
+                    'url' => $post->getSingleUrlAttribute(),
                     'price' => $post->price,
                     'x' => $metro->x,
                     'y' => $metro->y,

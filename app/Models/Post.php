@@ -182,6 +182,11 @@ class Post extends Model
 
     }
 
+    public function getSingleUrlAttribute(): string
+    {
+        return '/'.$this->national->filter_url.'/'.$this->url;
+    }
+
     public function getTitleAttribute(): string
     {
         $result = 'Фото проститутки '.$this->name;

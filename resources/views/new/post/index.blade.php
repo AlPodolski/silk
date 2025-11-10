@@ -29,7 +29,7 @@
         </div>
     @endif
 
-    @include('new.include.breadcrumb')
+    @include('new.include.breadcrumb-sungle')
 
     <h1>{{ $meta['h1'] }}</h1>
 
