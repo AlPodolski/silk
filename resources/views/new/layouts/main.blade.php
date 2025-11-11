@@ -19,7 +19,7 @@
     @endif
 
     <link rel="stylesheet" href="/fonts/ubuntu/ubuntu.css?v=1">
-    <link rel="stylesheet" href="/css/style.css?v=3">
+    <link rel="stylesheet" href="/css/style.css?v=4">
 
 
     <meta property="og:title" content="@yield('title')"/>

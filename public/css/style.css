@@ -731,6 +731,14 @@ h1 {
     display: none;
 }
 
+.category-items a{
+    color: #fff;
+    font-size: 18px;
+}
+.category-items{
+    column-count: 4;
+}
+
 .orange-btn{
     border-radius: 3px;
     background: linear-gradient(90deg, #FF3B2F 0%, #E44F1D 50.48%, #D7433A 100%);

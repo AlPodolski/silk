@@ -8,6 +8,10 @@
 
         <a class="menu__item" href="/na-vyezd">Выезд</a>
         <a class="menu__item" href="/novye">Новые</a>
+        <a class="menu__item" href="/metro">Метро</a>
+        <a class="menu__item" href="/rayon">Район</a>
+        <a class="menu__item" href="/service">Услуги</a>
+        <a class="menu__item" href="/national">Национальность</a>
         <a class="menu__item" href="/s-video">с видео</a>
         <a class="menu__item" href="/zrelye">Зрелые</a>
         <a class="menu__item" href="/elitnye">Элитные</a>

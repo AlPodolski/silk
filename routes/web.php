@@ -51,6 +51,9 @@ Route::middleware('redirect')->group(function () {
 
         Route::post('/contact', [\App\Http\Controllers\ClaimController::class, 'index'])->name('contact.send');
 
+        Route::get('/{slug}', [\App\Http\Controllers\CategoryController::class, 'index'])
+            ->where('slug', '^(metro|rayon|national)$');
+
         Route::get('/blog', [\App\Http\Controllers\BlogController::class, 'index']);
         Route::get('/blog/{url}', [\App\Http\Controllers\BlogController::class, 'post']);
 
