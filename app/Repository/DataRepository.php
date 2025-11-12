@@ -8,6 +8,7 @@ use App\Models\IntimHair;
 use App\Models\Metro;
 use App\Models\National;
 use App\Models\Place;
+use App\Models\Price;
 use App\Models\Rayon;
 use App\Models\Service;
 use App\Models\Time;
@@ -18,6 +19,7 @@ class DataRepository
 {
     public function getData($cityId): array
     {
+        Cache::flush();
         $expire = Carbon::now()->addHours(1200);
 
         $data = Cache::remember('data_menu_' . $cityId, $expire, function () use ($cityId) {
@@ -68,6 +70,12 @@ class DataRepository
                 ->select('rayons.*', 'filters.url as filter_url')
                 ->join('filters', 'rayons.id', '=', 'filters.related_id')
                 ->where('filters.related_table', 'rayons')
+                ->orderBy('value')
+                ->get();
+
+            $data['price'] = Price::select('prices.*', 'filters.url as filter_url')
+                ->join('filters', 'prices.id', '=', 'filters.related_id')
+                ->where('filters.related_table', 'prices')
                 ->orderBy('value')
                 ->get();
 

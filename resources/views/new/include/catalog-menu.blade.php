@@ -24,6 +24,7 @@
             $categories = [
               'metro' => 'Метро',
               'rayon' => 'Район',
+              'price' => 'Цена',
               'national' => 'Национальность',
               'place' => 'Место встречи',
               'time' => 'Время встречи',
@@ -52,47 +53,3 @@
         @endforeach
     </nav>
 </aside>
-
-<div class="catalog " style="display: none" id="catalogPanel">
-    <button class="close-btn" id="catalogClose">&times;</button>
-    <p class="catalog-heading">Каталог</p>
-    <div class="accordion">
-        @php
-            $categories = [
-                'metro' => 'Метро',
-                'rayon' => 'Район',
-                'national' => 'Национальность', // Assuming a more appropriate title based on context
-                'place' => 'Место встречи',
-                'time' => 'Время встречи',
-                'hair' => 'Цвет волос',
-                'intimHair' => 'Интимная стрижка',
-                'service' => 'Услуги',
-            ];
-        @endphp
-
-        <a class="sidebar-link" href="/na-vyezd">Выезд</a>
-        <a class="sidebar-link" href="/novye">Новые</a>
-        <a class="sidebar-link" href="/s-video">с видео</a>
-        <a class="sidebar-link" href="/zrelye">Зрелые</a>
-        <a class="sidebar-link" href="/elitnye">Элитные</a>
-        <a class="sidebar-link" href="/molodye">Молодые</a>
-        <a class="sidebar-link" href="/tolstye">Толстые</a>
-        <a class="sidebar-link" href="/deshevye">Дешевые</a>
-        <a class="sidebar-link" href="/proverennye">Проверенные</a>
-
-        @foreach($categories as $key => $title)
-            @if(isset($data[$key]) && $data[$key]->first())
-                <div class="accordion-item">
-                    <div class="accordion-header">{{ $title }}</div>
-                    <div class="accordion-content">
-                        <ul>
-                            @foreach($data[$key] as $item)
-                                <li><a href="/{{ $item->filter_url }}">{{ $item->value }}</a></li>
-                            @endforeach
-                        </ul>
-                    </div>
-                </div>
-            @endif
-        @endforeach
-    </div>
-</div>

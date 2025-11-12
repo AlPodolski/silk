@@ -15,6 +15,7 @@ class GenerateItemsForBreadcrumb
             'hair' => 'Цвет волос',
             'intimhair' => 'Интимная стрижка',
             'service' => 'Услуги',
+            'price' => 'Цена',
         ];
 
         $url = $request->path();

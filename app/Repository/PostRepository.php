@@ -87,14 +87,27 @@ class PostRepository
             if (strpos($search, 'do-20-let') !== false) $posts->where('age', '<', 21);
             if (strpos($search, 'molodye-prostitutki') !== false) $posts->where('age', '<', 26);
             if (strpos($search, 'zrelye-prostitutki') !== false) $posts->whereBetween('age', [35, 45]);
+
             if (strpos($search, '21-25-let') !== false) $posts->whereBetween('age', [21, 25]);
             if (strpos($search, '26-30-let') !== false) $posts->whereBetween('age', [26, 30]);
             if (strpos($search, '31-40-let') !== false) $posts->whereBetween('age', [31, 40]);
             if (strpos($search, '40-50-let') !== false) $posts->whereBetween('age', [40, 50]);
             if (strpos($search, 'starye') !== false) $posts->where('age', '>', 45);
             if (strpos($search, 'ot-50-let') !== false) $posts->where('age', '>', 49);
-            if (strpos($search, 'elitnye-prostitutki') !== false) $posts->where('price', '>', 4999);
-            if (strpos($search, 'deshevye-prostitutki') !== false) $posts->where('price', '<', 3001);
+
+            if (strpos($search, 'do-2000') !== false) $posts->where('price', '<=', 2000);
+            if (strpos($search, '2000-3000') !== false) $posts->where('price', '>=', 2000)
+                ->where('price', '<=', 3000);
+            if (strpos($search, '3000-5000') !== false) $posts->where('price', '>=', 3000)
+                ->where('price', '<=', 5000);
+            if (strpos($search, '5000-7000') !== false) $posts->where('price', '>=', 5000)
+                ->where('price', '<=', 7000);
+            if (strpos($search, '7000-10000') !== false) $posts->where('price', '>=', 7000)
+                ->where('price', '<=', 10000);
+            if (strpos($search, '10000-plus') !== false) $posts->where('price', '>=', 10000);
+
+            if (strpos($search, 'elitnye') !== false) $posts->where('price', '>', 9999);
+            if (strpos($search, 'deshevye') !== false) $posts->where('price', '<', 3001);
             if (strpos($search, 'proverennye-prostitutki') !== false) $posts->where('check_photo_status', 1);
             if (strpos($search, 'individualki-s-video') !== false) $posts->whereNotNull('video');
             if (strpos($search, 'novye-prostitutki') !== false) $posts->orderByDesc('id');
