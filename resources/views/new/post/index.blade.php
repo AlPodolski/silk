@@ -129,7 +129,7 @@
                             <div class="check">
                                 <div class="check-icon"></div>
                             </div>
-                            <a href="/{{ $item->filter_url }}" class="label">{{ $item->value }}</a>
+                            <a href="/service/{{ $item->filter_url }}" class="label">{{ $item->value }}</a>
                         </li>
 
                     @endforeach

@@ -7,10 +7,14 @@ class GenerateItemsForBreadcrumb
     public function generate($request, $name)
     {
         $sections = [
-            'metro'     => 'Метро',
-            'rayon'     => 'Район',
-            'national'  => 'Национальность',
-            'service'   => 'Услуги',
+            'metro' => 'Метро',
+            'rayon' => 'Район',
+            'national' => 'Национальность',
+            'place' => 'Место встречи',
+            'time' => 'Время встречи',
+            'hair' => 'Цвет волос',
+            'intimhair' => 'Интимная стрижка',
+            'service' => 'Услуги',
         ];
 
         $url = $request->path();

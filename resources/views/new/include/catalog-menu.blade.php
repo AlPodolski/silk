@@ -43,7 +43,7 @@
                     <div class="acc__panel" hidden>
                         <ul class="acc__list">
                             @foreach($data[$key] as $item)
-                                <li><a class="menu__subitem" href="/{{ $item->filter_url }}">{{ $item->value }}</a></li>
+                                <li><a class="menu__subitem" href="/{{ strtolower($key) }}/{{ $item->filter_url }}">{{ $item->value }}</a></li>
                             @endforeach
                         </ul>
                     </div>
