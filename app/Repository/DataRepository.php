@@ -79,6 +79,23 @@ class DataRepository
                 ->orderBy('value')
                 ->get();
 
+            $ages = [
+                '18-20' => '18-20',
+                '21-25' => '21-25',
+                '26-30' => '26-30',
+                '31-40' => '31-40',
+                '40+'   => 'ot-40',
+            ];
+
+            $agesCollection = collect($ages)->map(function ($url, $value) {
+                return (object) [
+                    'filter_url' => $url,
+                    'value' => $value,
+                ];
+            })->values();
+
+            $data['vozrast'] = $agesCollection;
+
             $data['city_list'] = City::all();
 
             $data['current_city'] = City::where('id', $cityId)->first();

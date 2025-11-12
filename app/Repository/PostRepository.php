@@ -88,12 +88,12 @@ class PostRepository
             if (strpos($search, 'molodye-prostitutki') !== false) $posts->where('age', '<', 26);
             if (strpos($search, 'zrelye-prostitutki') !== false) $posts->whereBetween('age', [35, 45]);
 
-            if (strpos($search, '21-25-let') !== false) $posts->whereBetween('age', [21, 25]);
-            if (strpos($search, '26-30-let') !== false) $posts->whereBetween('age', [26, 30]);
-            if (strpos($search, '31-40-let') !== false) $posts->whereBetween('age', [31, 40]);
-            if (strpos($search, '40-50-let') !== false) $posts->whereBetween('age', [40, 50]);
+            if (strpos($search, '18-20') !== false) $posts->whereBetween('age', [18, 20]);
+            if (strpos($search, '21-25') !== false) $posts->whereBetween('age', [21, 25]);
+            if (strpos($search, '26-30') !== false) $posts->whereBetween('age', [25, 30]);
+            if (strpos($search, '31-40') !== false) $posts->whereBetween('age', [31, 40]);
             if (strpos($search, 'starye') !== false) $posts->where('age', '>', 45);
-            if (strpos($search, 'ot-50-let') !== false) $posts->where('age', '>', 49);
+            if (strpos($search, 'ot-40') !== false) $posts->where('age', '>', 40);
 
             if (strpos($search, 'do-2000') !== false) $posts->where('price', '<=', 2000);
             if (strpos($search, '2000-3000') !== false) $posts->where('price', '>=', 2000)

@@ -52,10 +52,10 @@ Route::middleware('redirect')->group(function () {
         Route::post('/contact', [\App\Http\Controllers\ClaimController::class, 'index'])->name('contact.send');
 
         Route::get('/{slug}', [\App\Http\Controllers\CategoryController::class, 'index'])
-            ->where('slug', '^(metro|rayon|national|service|place|time|hair|intimhair|price)$');
+            ->where('slug', '^(metro|rayon|national|service|place|time|hair|intimhair|price|vozrast)$');
 
         Route::get('/{section}/{slug}',[\App\Http\Controllers\FilterController::class, 'slug'])
-            ->where('section', '^(metro|rayon|national|service|place|time|hair|intimhair|price)$');
+            ->where('section', '^(metro|rayon|national|service|place|time|hair|intimhair|price|vozrast)$');
 
         Route::get('/blog', [\App\Http\Controllers\BlogController::class, 'index']);
         Route::get('/blog/{url}', [\App\Http\Controllers\BlogController::class, 'post']);
