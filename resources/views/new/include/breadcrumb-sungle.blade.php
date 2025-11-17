@@ -10,10 +10,9 @@
             </a>
         </li>
         <li class="breadcrumb-item">
-            <a href="/{{ $post->national->filter_url }}">
+            <a href="/national/{{ $post->national->filter_url }}">
                 {{ $post->national->value2 }}
             </a>
-
         </li>
         <li class="breadcrumb-item">
             {{ mb_ucfirst(trim($meta['h1'])) }}
