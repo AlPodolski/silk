@@ -39,14 +39,16 @@
                 <div class="swiper-wrapper">
                     <div class="swiper-slide">
                         <img src="/storage/{{$post->avatar}}"
-                             alt="{{ $post->name }} привлекальеная девушка из {{ $post->city->city2 }} цена от {{ $post->price }} руб">
+                             title="Проститутка {{ $post->name }}в г. {{ $post->city->city }} цена {{ $post->price }}"
+                             alt="Фото проститутки {{ $post->name }}, в г. {{ $post->city->city }} ID {{ $post->id }} руб">>
                     </div>
 
                     @if($post->photo->first())
 
                         @foreach($post->photo as $item)
                             <div class="swiper-slide"><img src="/storage/{{ $item->file }}" loading="lazy"
-                                                           alt="Индивидуалка {{ $post->name }}, доступна для личного знакомства от {{ $post->price }} руб">
+                                                           title="Проститутка {{ $post->name }}в г. {{ $post->city->city }} цена {{ $post->price }}"
+                                                           alt="Фото проститутки {{ $post->name }}, в г. {{ $post->city->city }} ID {{ $post->id }} руб">>
                             </div>
                         @endforeach
 
@@ -119,9 +121,9 @@
 
                         @php
 
-                         $class = '';
+                            $class = '';
 
-                         if ($item->not_available == 0) $class = 'done';
+                            if ($item->not_available == 0) $class = 'done';
 
                         @endphp
 
